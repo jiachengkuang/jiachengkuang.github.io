@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name — Personal Academic Page</title>
+<style>
+  :root {
+    --text: #1a1a1a;
+    --muted: #555;
+    --light: #f5f5f5;
+    --link: #003f88;
+    --border: #e0e0e0;
+    --max-w: 680px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Palatino", "Georgia", "Times New Roman", serif;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 60px 20px 80px;
+  }
+
+  /* ── Header ── */
+  header {
+    margin-bottom: 48px;
+  }
+
+  header h1 {
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    margin-bottom: 6px;
+  }
+
+  header .affiliation {
+    font-size: 15px;
+    color: var(--muted);
+  }
+
+  header .links {
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  header .links a {
+    color: var(--link);
+    text-decoration: none;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  header .links a:hover {
+    text-decoration: underline;
+  }
+
+  /* ── Sections ── */
+  section {
+    margin-bottom: 40px;
+  }
+
+  section h2 {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    margin-bottom: 16px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  section p, section li {
+    font-size: 15px;
+    color: #333;
+  }
+
+  /* ── Papers ── */
+  .paper-list {
+    list-style: none;
+  }
+
+  .paper-list li {
+    margin-bottom: 22px;
+  }
+
+  .paper-list .title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .paper-list .meta {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .paper-list .meta a {
+    color: var(--link);
+    text-decoration: none;
+    margin-left: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  .paper-list .meta a:hover {
+    text-decoration: underline;
+  }
+
+  .paper-list .abstract {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 4px;
+    display: none;
+  }
+
+  .paper-list .abstract.open {
+    display: block;
+  }
+
+  .toggle-abstract {
+    font-size: 12px;
+    color: var(--link);
+    cursor: pointer;
+    background: none;
+    border: none;
+    margin-left: 6px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  .toggle-abstract:hover {
+    text-decoration: underline;
+  }
+
+  /* ── Footer ── */
+  footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 500px) {
+    .container { padding: 36px 16px 60px; }
+    header h1 { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  HEADER：改这里                        -->
+  <!-- ═══════════════════════════════════════════ -->
+  <header>
+    <h1>Jiacheng Kuang</h1>
+    <p class="affiliation">
+      M.A. / Ph.D. Student in Finance<br>
+      School of Finance, Your University
+    </p>
+    <div class="links">
+      <a href="mailto:your.email@example.com">Email</a>
+      <a href="files/CV_Jiacheng_Kuang.pdf" target="_blank">CV</a>
+      <a href="#" target="_blank">Google Scholar</a>
+      <a href="#" target="_blank">GitHub</a>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  ABOUT                               -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section>
+    <h2>About</h2>
+    <p>
+      I am a graduate student in finance at [Your University]. My research
+      interests lie in asset pricing, corporate finance, and behavioral
+      finance. I am particularly interested in how market expectations and
+      managerial decisions interact.
+    </p>
+    <br>
+    <p>
+      <strong>Research Interests:</strong>
+      Asset Pricing, Corporate Finance, Behavioral Finance,
+      Expectation Formation, Text Analysis
+    </p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  WORKING PAPERS                      -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section>
+    <h2>Working Papers</h2>
+    <ul class="paper-list">
+
+      <li>
+        <div class="title">Paper Title Goes Here</div>
+        <div class="meta">
+          with Coauthor Name (2026)
+          <a href="#">[PDF]</a>
+          <button class="toggle-abstract" onclick="this.parentElement.nextElementSibling.classList.toggle('open');this.textContent=this.textContent==='[Abstract]'?'[Hide]':'[Abstract]'">[Abstract]</button>
+        </div>
+        <div class="abstract">
+          Abstract: Replace this with a short summary of your paper.
+          Explain the research question, methodology, and key findings
+          in 3–5 sentences.
+        </div>
+      </li>
+
+      <li>
+        <div class="title">Another Paper Title</div>
+        <div class="meta">
+          Sole Author (2026)
+          <a href="#">[PDF]</a>
+          <button class="toggle-abstract" onclick="this.parentElement.nextElementSibling.classList.toggle('open');this.textContent=this.textContent==='[Abstract]'?'[Hide]':'[Abstract]'">[Abstract]</button>
+        </div>
+        <div class="abstract">
+          Abstract: Short summary of this paper. Describe what you study,
+          how you study it, and what you find.
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  WORK IN PROGRESS                    -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section>
+    <h2>Work in Progress</h2>
+    <ul class="paper-list">
+      <li>
+        <div class="title">Early-stage Project Title</div>
+        <div class="meta">with Coauthor Name</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  CONTACT                             -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section>
+    <h2>Contact</h2>
+    <p>
+      [Your University]<br>
+      [Department / School]<br>
+      [Your Building & Room]<br>
+      Email: your.email@example.com
+    </p>
+  </section>
+
+  <footer>
+    &copy; 2026 Your Name. Powered by GitHub Pages.
+  </footer>
+
+</div>
+
+<!-- inline script for abstract toggle -->
+<script>
+  // abstracts stay collapsed by default — toggle button handles the rest
+</script>
+</body>
+</html>
