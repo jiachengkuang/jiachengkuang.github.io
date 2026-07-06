@@ -170,7 +170,7 @@
   /* ── Responsive ── */
   @media (max-width: 560px) {
     .header-row {
-      flex-direction: column-reverse;
+      flex-direction: column;
     }
     .header-photo img {
       width: 100px;
@@ -186,6 +186,9 @@
 
   <!-- ═════════════════════ HEADER ═════════════════════ -->
   <div class="header-row">
+    <div class="header-photo">
+      <img src="files/photo1.jpg" alt="Jiacheng Kuang">
+    </div>
     <div class="header-info">
       <h1>Jiacheng Kuang</h1>
       <p class="affiliation">
@@ -197,9 +200,6 @@
         <a href="mailto:jckuang@smail.nju.edu.cn">Email</a>
         <a href="files/CV_Jiacheng_Kuang.pdf" target="_blank">CV</a>
       </div>
-    </div>
-    <div class="header-photo">
-      <img src="files/photo1.jpg" alt="Jiacheng Kuang">
     </div>
   </div>
 
@@ -231,38 +231,35 @@
           Expectation Divergence with LLMs
         </div>
         <div class="meta">
-          with Zhenyu Gao and Haitao Huang (April 2026)
+          with Zhenyu Gao and Haitao Huang (June 2026)
+          <a href="files/Kuang_Managerial_Beliefs.pdf" target="_blank">[PDF]</a>
           <button class="toggle-detail"
             onclick="this.parentElement.nextElementSibling.classList.toggle('open');
-              this.textContent=this.textContent==='[Details]'?'[Hide]':'[Details]'">
-            [Details]
+              this.textContent=this.textContent==='[Abstract]'?'[Hide]':'[Abstract]'">
+            [Abstract]
           </button>
         </div>
         <div class="paper-detail collapsible">
           <p>
-            <strong>Present at:</strong> CICF 2026 (Scheduled); Greater China Area
-            Finance Conference 2026 (Scheduled); MRS International Risk Conference
-            2026 (Scheduled); Annual Graduate Economics Academic Conference 2026
-            (Second Best Paper Award); Tongji University 2026; Nanjing University 2025
-          </p>
-          <p style="margin-top:6px">
-            <strong>Metric Construction:</strong> Constructed a novel "Firm
-            Expectation Divergence" index by leveraging Large Language Models to
-            extract structured beliefs from 41,000+ MD&A texts (2012-2024),
-            effectively distinguishing rational expectations from emotional
-            sentiment.
-          </p>
-          <p style="margin-top:6px">
-            <strong>Empirical Findings:</strong> Documented a "Dual Anomaly": high
-            divergence predicts deteriorating future fundamentals (ROA/ROE) due to
-            managerial information processing defects, yet positively predicts
-            risk-adjusted stock returns (Alpha).
-          </p>
-          <p style="margin-top:6px">
-            <strong>Mechanism:</strong> Validated the "Risk Premium Channel,"
-            showing that divergence proxies for idiosyncratic risk and information
-            uncertainty, compelling rational investors to demand higher
-            compensation.
+            When a firm's management holds a macroeconomic outlook that diverges
+            from its industry peers, does the deviation signal superior private
+            information or cognitive error? We measure managerial macroeconomic
+            expectations directly, applying a Large Language Model to the
+            forward-looking disclosures of Chinese A-share listed firms from 2012
+            to 2024, and define expectation divergence as a firm's deviation from
+            its industry-year consensus. Divergence predicts both deteriorating
+            future operating performance and higher future risk-adjusted returns,
+            and both effects load on the pessimistic component rather than the
+            optimistic one. The evidence is consistent with a mechanism in which
+            managers over-extrapolate salient recent firm-specific experience to
+            the common macro environment. On the real side, the distortion is
+            partially self-fulfilling, as managers retrench investment, R&D, and
+            hiring beyond what realized fundamentals warrant, producing a
+            profitability shortfall that proves transitory. On the pricing side,
+            the over-pessimism is impounded into prices, generating a positive
+            return that attenuates with analyst coverage, institutional ownership,
+            size, and liquidity, consistent with mispricing sustained by limits to
+            arbitrage rather than an unconditional risk premium.
           </p>
         </div>
       </li>
@@ -279,25 +276,16 @@
           Policy in the Eye of the Analyst
         </div>
         <div class="meta">
-          Research Assistant, supervised by Prof. Pengfei Sui (CUHK-Shenzhen)
-          &nbsp;(Mar 2026 – Jun 2026)
-          <button class="toggle-detail"
-            onclick="this.parentElement.nextElementSibling.classList.toggle('open');
-              this.textContent=this.textContent==='[Details]'?'[Hide]':'[Details]'">
-            [Details]
-          </button>
+          with Zhenyu Gao and Pengfei Sui (June 2026)
         </div>
-        <div class="paper-detail collapsible">
+        <div class="paper-detail" style="margin-top:6px">
           <p>
-            <strong>Data Construction:</strong> Analyst report database: ~267,731
-            reports from 1,607 institutions covering 2017-2025. Policy database
-            from PKULAW: ~970,000 policies covering 2000-2025.
-          </p>
-          <p style="margin-top:6px">
-            <strong>Disagreement Measure:</strong> Using LLMs, we decompose
-            analysts' policy reasoning in industry reports into distinct dimensions
-            and compute the heterogeneous belief (disagreement) that exists among
-            analysts covering the same industry after the same policy shock.
+            Using LLMs, we decompose analysts' policy reasoning in industry
+            reports into distinct dimensions and compute the heterogeneous belief
+            (disagreement) that exists among analysts covering the same industry
+            after the same policy shock. Analyst report database: ~267,731 reports
+            from 1,607 institutions covering 2017-2025. Policy database from
+            PKULAW: ~970,000 policies covering 2000-2025.
           </p>
         </div>
       </li>
