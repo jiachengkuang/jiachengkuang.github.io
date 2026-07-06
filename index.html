@@ -3,15 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Name — Personal Academic Page</title>
+<title>Jiacheng Kuang — Personal Academic Page</title>
 <style>
   :root {
     --text: #1a1a1a;
     --muted: #555;
-    --light: #f5f5f5;
     --link: #003f88;
     --border: #e0e0e0;
-    --max-w: 680px;
+    --max-w: 720px;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,38 +30,50 @@
   }
 
   /* ── Header ── */
-  header {
-    margin-bottom: 48px;
+  .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 36px;
+    gap: 24px;
   }
 
-  header h1 {
+  .header-info h1 {
     font-size: 28px;
     font-weight: 400;
     letter-spacing: 0.02em;
     margin-bottom: 6px;
   }
 
-  header .affiliation {
+  .header-info .affiliation {
     font-size: 15px;
     color: var(--muted);
+    line-height: 1.6;
   }
 
-  header .links {
+  .header-info .links {
     margin-top: 14px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
   }
 
-  header .links a {
+  .header-info .links a {
     color: var(--link);
     text-decoration: none;
     font-size: 14px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
 
-  header .links a:hover {
+  .header-info .links a:hover {
     text-decoration: underline;
+  }
+
+  .header-photo img {
+    width: 130px;
+    height: 130px;
+    border-radius: 3px;
+    object-fit: cover;
   }
 
   /* ── Sections ── */
@@ -93,22 +104,23 @@
     margin-bottom: 22px;
   }
 
-  .paper-list .title {
+  .paper-list .paper-title {
     font-size: 15px;
     font-weight: 600;
     color: var(--text);
-    margin-bottom: 2px;
+    margin-bottom: 3px;
   }
 
   .paper-list .meta {
     font-size: 13px;
     color: var(--muted);
+    line-height: 1.6;
   }
 
   .paper-list .meta a {
     color: var(--link);
     text-decoration: none;
-    margin-left: 8px;
+    margin-left: 6px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
 
@@ -116,18 +128,15 @@
     text-decoration: underline;
   }
 
-  .paper-list .abstract {
+  .paper-detail {
     font-size: 13px;
     color: var(--muted);
-    margin-top: 4px;
-    display: none;
+    margin-top: 6px;
+    padding-left: 12px;
+    border-left: 2px solid var(--border);
   }
 
-  .paper-list .abstract.open {
-    display: block;
-  }
-
-  .toggle-abstract {
+  .toggle-detail {
     font-size: 12px;
     color: var(--link);
     cursor: pointer;
@@ -137,8 +146,16 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
 
-  .toggle-abstract:hover {
+  .toggle-detail:hover {
     text-decoration: underline;
+  }
+
+  .collapsible {
+    display: none;
+  }
+
+  .collapsible.open {
+    display: block;
   }
 
   /* ── Footer ── */
@@ -151,123 +168,157 @@
   }
 
   /* ── Responsive ── */
-  @media (max-width: 500px) {
+  @media (max-width: 560px) {
+    .header-row {
+      flex-direction: column-reverse;
+    }
+    .header-photo img {
+      width: 100px;
+      height: 100px;
+    }
     .container { padding: 36px 16px 60px; }
-    header h1 { font-size: 24px; }
+    .header-info h1 { font-size: 24px; }
   }
 </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!--  HEADER：改这里                        -->
-  <!-- ═══════════════════════════════════════════ -->
-  <header>
-    <h1>Jiacheng Kuang</h1>
-    <p class="affiliation">
-      M.A. / Ph.D. Student in Finance<br>
-      School of Finance, Your University
-    </p>
-    <div class="links">
-      <a href="mailto:your.email@example.com">Email</a>
-      <a href="files/CV_Jiacheng_Kuang.pdf" target="_blank">CV</a>
-      <a href="#" target="_blank">Google Scholar</a>
-      <a href="#" target="_blank">GitHub</a>
+  <!-- ═════════════════════ HEADER ═════════════════════ -->
+  <div class="header-row">
+    <div class="header-info">
+      <h1>Jiacheng Kuang</h1>
+      <p class="affiliation">
+        M.A. in National Economics (Digital Economy and Digital Finance)<br>
+        School of Digital Economics and Management, Nanjing University<br>
+        Supervisor: Prof. Haitao Huang
+      </p>
+      <div class="links">
+        <a href="mailto:jckuang@smail.nju.edu.cn">Email</a>
+        <a href="files/CV_Jiacheng_Kuang.pdf" target="_blank">CV</a>
+      </div>
     </div>
-  </header>
+    <div class="header-photo">
+      <img src="files/photo1.jpg" alt="Jiacheng Kuang">
+    </div>
+  </div>
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!--  ABOUT                               -->
-  <!-- ═══════════════════════════════════════════ -->
+  <!-- ═════════════════════ ABOUT ═════════════════════ -->
   <section>
     <h2>About</h2>
     <p>
-      I am a graduate student in finance at [Your University]. My research
-      interests lie in asset pricing, corporate finance, and behavioral
-      finance. I am particularly interested in how market expectations and
-      managerial decisions interact.
+      I am a master's student in National Economics at Nanjing University, under
+      the supervision of Prof. Haitao Huang. My research focuses on applying
+      large language models and textual analysis to finance, with particular
+      interest in measuring managerial expectations and belief heterogeneity
+      from corporate disclosures.
     </p>
     <br>
     <p>
       <strong>Research Interests:</strong>
-      Asset Pricing, Corporate Finance, Behavioral Finance,
-      Expectation Formation, Text Analysis
+      Textual Analysis in Finance, Managerial Expectation, Empirical Asset Pricing
     </p>
   </section>
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!--  WORKING PAPERS                      -->
-  <!-- ═══════════════════════════════════════════ -->
+  <!-- ═════════════════════ WORKING PAPERS ═════════════════════ -->
   <section>
     <h2>Working Papers</h2>
     <ul class="paper-list">
 
       <li>
-        <div class="title">Paper Title Goes Here</div>
+        <div class="paper-title">
+          Decoding Managerial Beliefs from Corporate Disclosure: Measuring
+          Expectation Divergence with LLMs
+        </div>
         <div class="meta">
-          with Coauthor Name (2026)
-          <a href="#">[PDF]</a>
-          <button class="toggle-abstract" onclick="this.parentElement.nextElementSibling.classList.toggle('open');this.textContent=this.textContent==='[Abstract]'?'[Hide]':'[Abstract]'">[Abstract]</button>
+          with Zhenyu Gao and Haitao Huang (April 2026)
+          <button class="toggle-detail"
+            onclick="this.parentElement.nextElementSibling.classList.toggle('open');
+              this.textContent=this.textContent==='[Details]'?'[Hide]':'[Details]'">
+            [Details]
+          </button>
         </div>
-        <div class="abstract">
-          Abstract: Replace this with a short summary of your paper.
-          Explain the research question, methodology, and key findings
-          in 3–5 sentences.
-        </div>
-      </li>
-
-      <li>
-        <div class="title">Another Paper Title</div>
-        <div class="meta">
-          Sole Author (2026)
-          <a href="#">[PDF]</a>
-          <button class="toggle-abstract" onclick="this.parentElement.nextElementSibling.classList.toggle('open');this.textContent=this.textContent==='[Abstract]'?'[Hide]':'[Abstract]'">[Abstract]</button>
-        </div>
-        <div class="abstract">
-          Abstract: Short summary of this paper. Describe what you study,
-          how you study it, and what you find.
+        <div class="paper-detail collapsible">
+          <p>
+            <strong>Present at:</strong> CICF 2026 (Scheduled); Greater China Area
+            Finance Conference 2026 (Scheduled); MRS International Risk Conference
+            2026 (Scheduled); Annual Graduate Economics Academic Conference 2026
+            (Second Best Paper Award); Tongji University 2026; Nanjing University 2025
+          </p>
+          <p style="margin-top:6px">
+            <strong>Metric Construction:</strong> Constructed a novel "Firm
+            Expectation Divergence" index by leveraging Large Language Models to
+            extract structured beliefs from 41,000+ MD&A texts (2012-2024),
+            effectively distinguishing rational expectations from emotional
+            sentiment.
+          </p>
+          <p style="margin-top:6px">
+            <strong>Empirical Findings:</strong> Documented a "Dual Anomaly": high
+            divergence predicts deteriorating future fundamentals (ROA/ROE) due to
+            managerial information processing defects, yet positively predicts
+            risk-adjusted stock returns (Alpha).
+          </p>
+          <p style="margin-top:6px">
+            <strong>Mechanism:</strong> Validated the "Risk Premium Channel,"
+            showing that divergence proxies for idiosyncratic risk and information
+            uncertainty, compelling rational investors to demand higher
+            compensation.
+          </p>
         </div>
       </li>
 
     </ul>
   </section>
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!--  WORK IN PROGRESS                    -->
-  <!-- ═══════════════════════════════════════════ -->
+  <!-- ═════════════════════ WORK IN PROGRESS ═════════════════════ -->
   <section>
     <h2>Work in Progress</h2>
     <ul class="paper-list">
       <li>
-        <div class="title">Early-stage Project Title</div>
-        <div class="meta">with Coauthor Name</div>
+        <div class="paper-title">
+          Policy in the Eye of the Analyst
+        </div>
+        <div class="meta">
+          Research Assistant, supervised by Prof. Pengfei Sui (CUHK-Shenzhen)
+          &nbsp;(Mar 2026 – Jun 2026)
+          <button class="toggle-detail"
+            onclick="this.parentElement.nextElementSibling.classList.toggle('open');
+              this.textContent=this.textContent==='[Details]'?'[Hide]':'[Details]'">
+            [Details]
+          </button>
+        </div>
+        <div class="paper-detail collapsible">
+          <p>
+            <strong>Data Construction:</strong> Analyst report database: ~267,731
+            reports from 1,607 institutions covering 2017-2025. Policy database
+            from PKULAW: ~970,000 policies covering 2000-2025.
+          </p>
+          <p style="margin-top:6px">
+            <strong>Disagreement Measure:</strong> Using LLMs, we decompose
+            analysts' policy reasoning in industry reports into distinct dimensions
+            and compute the heterogeneous belief (disagreement) that exists among
+            analysts covering the same industry after the same policy shock.
+          </p>
+        </div>
       </li>
     </ul>
   </section>
 
-  <!-- ═══════════════════════════════════════════ -->
-  <!--  CONTACT                             -->
-  <!-- ═══════════════════════════════════════════ -->
+  <!-- ═════════════════════ CONTACT ═════════════════════ -->
   <section>
     <h2>Contact</h2>
     <p>
-      [Your University]<br>
-      [Department / School]<br>
-      [Your Building & Room]<br>
-      Email: your.email@example.com
+      School of Digital Economics and Management<br>
+      Nanjing University<br>
+      Email: jckuang@smail.nju.edu.cn<br>
+      Tel: (+86) 182-7008-9851
     </p>
   </section>
 
   <footer>
-    &copy; 2026 Your Name. Powered by GitHub Pages.
+    &copy; 2026 Jiacheng Kuang. Powered by GitHub Pages.
   </footer>
 
 </div>
-
-<!-- inline script for abstract toggle -->
-<script>
-  // abstracts stay collapsed by default — toggle button handles the rest
-</script>
 </body>
 </html>
