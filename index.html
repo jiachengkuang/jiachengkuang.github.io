@@ -10,7 +10,8 @@
     --muted: #555;
     --link: #003f88;
     --border: #e0e0e0;
-    --max-w: 720px;
+    --sidebar-w: 200px;
+    --content-max-w: 640px;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,57 +24,84 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  .container {
-    max-width: var(--max-w);
+  .page {
+    max-width: 920px;
     margin: 0 auto;
     padding: 60px 20px 80px;
-  }
-
-  /* ── Header ── */
-  .header-row {
     display: flex;
-    justify-content: space-between;
+    gap: 40px;
     align-items: flex-start;
-    margin-bottom: 36px;
-    gap: 24px;
   }
 
-  .header-info h1 {
+  /* ── Sidebar / Photo ── */
+  .sidebar {
+    flex-shrink: 0;
+    width: var(--sidebar-w);
+    position: sticky;
+    top: 60px;
+  }
+
+  .sidebar img {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    display: block;
+  }
+
+  .sidebar .side-links {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .sidebar .side-links a {
+    color: var(--link);
+    text-decoration: none;
+    font-size: 13px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  .sidebar .side-links a:hover {
+    text-decoration: underline;
+  }
+
+  /* ── Main Content ── */
+  .main {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .main h1 {
     font-size: 28px;
     font-weight: 400;
     letter-spacing: 0.02em;
     margin-bottom: 6px;
   }
 
-  .header-info .affiliation {
+  .main .affiliation {
     font-size: 15px;
     color: var(--muted);
     line-height: 1.6;
+    margin-bottom: 14px;
   }
 
-  .header-info .links {
-    margin-top: 14px;
+  .main .top-links {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    margin-bottom: 36px;
   }
 
-  .header-info .links a {
+  .main .top-links a {
     color: var(--link);
     text-decoration: none;
     font-size: 14px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
 
-  .header-info .links a:hover {
+  .main .top-links a:hover {
     text-decoration: underline;
-  }
-
-  .header-photo img {
-    width: 130px;
-    height: 130px;
-    border-radius: 3px;
-    object-fit: cover;
   }
 
   /* ── Sections ── */
@@ -168,145 +196,143 @@
   }
 
   /* ── Responsive ── */
-  @media (max-width: 560px) {
-    .header-row {
+  @media (max-width: 680px) {
+    .page {
       flex-direction: column;
+      gap: 24px;
+      padding: 36px 16px 60px;
     }
-    .header-photo img {
-      width: 100px;
-      height: 100px;
+    .sidebar {
+      width: 140px;
+      position: static;
     }
-    .container { padding: 36px 16px 60px; }
-    .header-info h1 { font-size: 24px; }
+    .main h1 { font-size: 24px; }
   }
 </style>
 </head>
 <body>
-<div class="container">
+<div class="page">
 
-  <!-- ═════════════════════ HEADER ═════════════════════ -->
-  <div class="header-row">
-    <div class="header-photo">
-      <img src="files/photo1.jpg" alt="Jiacheng Kuang">
+  <!-- ═══════════════ LEFT SIDEBAR ═══════════════ -->
+  <aside class="sidebar">
+    <img src="files/photo1.jpg" alt="Jiacheng Kuang">
+    <div class="side-links">
+      <a href="mailto:jckuang@smail.nju.edu.cn">Email</a>
+      <a href="files/CV_Jiacheng_Kuang.pdf" target="_blank">CV</a>
     </div>
-    <div class="header-info">
-      <h1>Jiacheng Kuang</h1>
-      <p class="affiliation">
-        M.A. in National Economics (Digital Economy and Digital Finance)<br>
-        School of Digital Economics and Management, Nanjing University<br>
-        Supervisor: Prof. Haitao Huang
+  </aside>
+
+  <!-- ═══════════════ MAIN CONTENT ═══════════════ -->
+  <div class="main">
+
+    <h1>Jiacheng Kuang</h1>
+    <p class="affiliation">
+      M.A. in National Economics (Digital Economy and Digital Finance)<br>
+      School of Digital Economics and Management, Nanjing University<br>
+      Supervisor: Prof. Haitao Huang
+    </p>
+
+    <!-- ═══════════ ABOUT ═══════════ -->
+    <section>
+      <h2>About</h2>
+      <p>
+        I am a master's student in National Economics at Nanjing University, under
+        the supervision of Prof. Haitao Huang. My research focuses on applying
+        large language models and textual analysis to finance, with particular
+        interest in measuring managerial expectations and belief heterogeneity
+        from corporate disclosures.
       </p>
-      <div class="links">
-        <a href="mailto:jckuang@smail.nju.edu.cn">Email</a>
-        <a href="files/CV_Jiacheng_Kuang.pdf" target="_blank">CV</a>
-      </div>
-    </div>
+      <br>
+      <p>
+        <strong>Research Interests:</strong>
+        Textual Analysis in Finance, Managerial Expectation, Empirical Asset Pricing
+      </p>
+    </section>
+
+    <!-- ═══════════ WORKING PAPERS ═══════════ -->
+    <section>
+      <h2>Working Papers</h2>
+      <ul class="paper-list">
+
+        <li>
+          <div class="paper-title">
+            Decoding Managerial Beliefs from Corporate Disclosure: Measuring
+            Expectation Divergence with LLMs
+          </div>
+          <div class="meta">
+            with Zhenyu Gao and Haitao Huang (June 2026)
+            <a href="files/Kuang_Managerial_Beliefs.pdf" target="_blank">[PDF]</a>
+            <button class="toggle-detail"
+              onclick="this.parentElement.nextElementSibling.classList.toggle('open');
+                this.textContent=this.textContent==='[Abstract]'?'[Hide]':'[Abstract]'">
+              [Abstract]
+            </button>
+          </div>
+          <div class="paper-detail collapsible">
+            <p>
+              When a firm's management holds a macroeconomic outlook that diverges
+              from its industry peers, does the deviation signal superior private
+              information or cognitive error? We measure managerial macroeconomic
+              expectations directly, applying a Large Language Model to the
+              forward-looking disclosures of Chinese A-share listed firms from 2012
+              to 2024, and define expectation divergence as a firm's deviation from
+              its industry-year consensus. Divergence predicts both deteriorating
+              future operating performance and higher future risk-adjusted returns,
+              and both effects load on the pessimistic component rather than the
+              optimistic one. The evidence is consistent with a mechanism in which
+              managers over-extrapolate salient recent firm-specific experience to
+              the common macro environment. On the real side, the distortion is
+              partially self-fulfilling, as managers retrench investment, R&D, and
+              hiring beyond what realized fundamentals warrant, producing a
+              profitability shortfall that proves transitory. On the pricing side,
+              the over-pessimism is impounded into prices, generating a positive
+              return that attenuates with analyst coverage, institutional ownership,
+              size, and liquidity, consistent with mispricing sustained by limits to
+              arbitrage rather than an unconditional risk premium.
+            </p>
+            <p style="margin-top:8px">
+              <strong>Present at:</strong> CICF 2026 (Scheduled); Greater China Area
+              Finance Conference 2026 (Scheduled); MRS International Risk Conference
+              2026 (Scheduled); Annual Graduate Economics Academic Conference 2026
+              (Second Best Paper Award); Tongji University 2026; Nanjing University 2025
+            </p>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+    <!-- ═══════════ WORK IN PROGRESS ═══════════ -->
+    <section>
+      <h2>Work in Progress</h2>
+      <ul class="paper-list">
+        <li>
+          <div class="paper-title">
+            Policy in the Eye of the Analyst
+          </div>
+          <div class="meta">
+            with Zhenyu Gao and Pengfei Sui (June 2026)
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ═══════════ CONTACT ═══════════ -->
+    <section>
+      <h2>Contact</h2>
+      <p>
+        School of Digital Economics and Management<br>
+        Nanjing University<br>
+        Email: jckuang@smail.nju.edu.cn<br>
+        Tel: (+86) 182-7008-9851
+      </p>
+    </section>
+
+    <footer>
+      &copy; 2026 Jiacheng Kuang. Powered by GitHub Pages.
+    </footer>
+
   </div>
-
-  <!-- ═════════════════════ ABOUT ═════════════════════ -->
-  <section>
-    <h2>About</h2>
-    <p>
-      I am a master's student in National Economics at Nanjing University, under
-      the supervision of Prof. Haitao Huang. My research focuses on applying
-      large language models and textual analysis to finance, with particular
-      interest in measuring managerial expectations and belief heterogeneity
-      from corporate disclosures.
-    </p>
-    <br>
-    <p>
-      <strong>Research Interests:</strong>
-      Textual Analysis in Finance, Managerial Expectation, Empirical Asset Pricing
-    </p>
-  </section>
-
-  <!-- ═════════════════════ WORKING PAPERS ═════════════════════ -->
-  <section>
-    <h2>Working Papers</h2>
-    <ul class="paper-list">
-
-      <li>
-        <div class="paper-title">
-          Decoding Managerial Beliefs from Corporate Disclosure: Measuring
-          Expectation Divergence with LLMs
-        </div>
-        <div class="meta">
-          with Zhenyu Gao and Haitao Huang (June 2026)
-          <a href="files/Kuang_Managerial_Beliefs.pdf" target="_blank">[PDF]</a>
-          <button class="toggle-detail"
-            onclick="this.parentElement.nextElementSibling.classList.toggle('open');
-              this.textContent=this.textContent==='[Abstract]'?'[Hide]':'[Abstract]'">
-            [Abstract]
-          </button>
-        </div>
-        <div class="paper-detail collapsible">
-          <p>
-            When a firm's management holds a macroeconomic outlook that diverges
-            from its industry peers, does the deviation signal superior private
-            information or cognitive error? We measure managerial macroeconomic
-            expectations directly, applying a Large Language Model to the
-            forward-looking disclosures of Chinese A-share listed firms from 2012
-            to 2024, and define expectation divergence as a firm's deviation from
-            its industry-year consensus. Divergence predicts both deteriorating
-            future operating performance and higher future risk-adjusted returns,
-            and both effects load on the pessimistic component rather than the
-            optimistic one. The evidence is consistent with a mechanism in which
-            managers over-extrapolate salient recent firm-specific experience to
-            the common macro environment. On the real side, the distortion is
-            partially self-fulfilling, as managers retrench investment, R&D, and
-            hiring beyond what realized fundamentals warrant, producing a
-            profitability shortfall that proves transitory. On the pricing side,
-            the over-pessimism is impounded into prices, generating a positive
-            return that attenuates with analyst coverage, institutional ownership,
-            size, and liquidity, consistent with mispricing sustained by limits to
-            arbitrage rather than an unconditional risk premium.
-          </p>
-        </div>
-      </li>
-
-    </ul>
-  </section>
-
-  <!-- ═════════════════════ WORK IN PROGRESS ═════════════════════ -->
-  <section>
-    <h2>Work in Progress</h2>
-    <ul class="paper-list">
-      <li>
-        <div class="paper-title">
-          Policy in the Eye of the Analyst
-        </div>
-        <div class="meta">
-          with Zhenyu Gao and Pengfei Sui (June 2026)
-        </div>
-        <div class="paper-detail" style="margin-top:6px">
-          <p>
-            Using LLMs, we decompose analysts' policy reasoning in industry
-            reports into distinct dimensions and compute the heterogeneous belief
-            (disagreement) that exists among analysts covering the same industry
-            after the same policy shock. Analyst report database: ~267,731 reports
-            from 1,607 institutions covering 2017-2025. Policy database from
-            PKULAW: ~970,000 policies covering 2000-2025.
-          </p>
-        </div>
-      </li>
-    </ul>
-  </section>
-
-  <!-- ═════════════════════ CONTACT ═════════════════════ -->
-  <section>
-    <h2>Contact</h2>
-    <p>
-      School of Digital Economics and Management<br>
-      Nanjing University<br>
-      Email: jckuang@smail.nju.edu.cn<br>
-      Tel: (+86) 182-7008-9851
-    </p>
-  </section>
-
-  <footer>
-    &copy; 2026 Jiacheng Kuang. Powered by GitHub Pages.
-  </footer>
-
 </div>
 </body>
 </html>
